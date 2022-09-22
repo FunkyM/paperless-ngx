@@ -22,6 +22,7 @@ import {
   SETTINGS,
   SETTINGS_KEYS,
 } from '../data/paperless-uisettings'
+import { SavedViewService } from './rest/saved-view.service'
 import { ToastService } from './toast.service'
 
 export interface LanguageOption {
@@ -53,7 +54,8 @@ export class SettingsService {
     private meta: Meta,
     @Inject(LOCALE_ID) private localeId: string,
     protected http: HttpClient,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private savedViewService: SavedViewService
   ) {
     this.renderer = rendererFactory.createRenderer(null, null)
   }
@@ -403,7 +405,9 @@ export class SettingsService {
   }
 
   offerTour(): boolean {
-    return true
-    // !savedViewService.loading && savedViewService.dashboardViews.length == 0
+    return (
+      !this.savedViewService.loading &&
+      this.savedViewService.dashboardViews.length == 0
+    )
   }
 }
