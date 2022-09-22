@@ -121,7 +121,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="tags" routerLinkActive="active" (click)="closeMenu()">
+            <a class="nav-link" routerLink="tags" routerLinkActive="active" (click)="closeMenu()" tourAnchor="tour.tags">
               <svg class="sidebaricon" fill="currentColor">
                 <use xlink:href="assets/bootstrap-icons.svg#tags"/>
               </svg>&nbsp;<ng-container i18n>Tags</ng-container>
@@ -142,7 +142,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="tasks" routerLinkActive="active" (click)="closeMenu()">
+            <a class="nav-link" routerLink="tasks" routerLinkActive="active" (click)="closeMenu()" tourAnchor="tour.file-tasks">
               <svg class="sidebaricon" fill="currentColor">
                 <use xlink:href="assets/bootstrap-icons.svg#list-task"/>
               </svg>&nbsp;<ng-container i18n>File Tasks<ng-container *ngIf="tasksService.failedFileTasks.length > 0"><span class="badge bg-danger ms-2">{{tasksService.failedFileTasks.length}}</span></ng-container></ng-container>
@@ -156,7 +156,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="settings" routerLinkActive="active" (click)="closeMenu()">
+            <a class="nav-link" routerLink="settings" routerLinkActive="active" (click)="closeMenu()" tourAnchor="tour.settings">
               <svg class="sidebaricon" fill="currentColor">
                 <use xlink:href="assets/bootstrap-icons.svg#gear"/>
               </svg>&nbsp;<ng-container i18n>Settings</ng-container>
@@ -176,7 +176,7 @@
         </h6>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://paperless-ngx.readthedocs.io/en/latest/">
+            <a class="nav-link" target="_blank" rel="noopener noreferrer" href="https://paperless-ngx.readthedocs.io/en/latest/"  tourAnchor="tour.outro">
               <svg class="sidebaricon" fill="currentColor">
                 <use xlink:href="assets/bootstrap-icons.svg#question-circle"/>
               </svg>&nbsp;<ng-container i18n>Documentation</ng-container>

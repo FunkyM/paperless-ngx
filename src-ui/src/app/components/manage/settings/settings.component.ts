@@ -18,6 +18,7 @@ import { Toast, ToastService } from 'src/app/services/toast.service'
 import { dirtyCheck, DirtyComponent } from '@ngneat/dirty-check-forms'
 import { Observable, Subscription, BehaviorSubject, first } from 'rxjs'
 import { SETTINGS_KEYS } from 'src/app/data/paperless-uisettings'
+import { TourService } from 'ngx-ui-tour-ng-bootstrap'
 
 @Component({
   selector: 'app-settings',
@@ -74,6 +75,7 @@ export class SettingsComponent implements OnInit, OnDestroy, DirtyComponent {
     private documentListViewService: DocumentListViewService,
     private toastService: ToastService,
     private settings: SettingsService,
+    public readonly tourService: TourService,
     @Inject(LOCALE_ID) public currentLocale: string
   ) {}
 
