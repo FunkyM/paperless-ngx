@@ -401,4 +401,9 @@ export class SettingsService {
         })
     }
   }
+
+  offerTour(): boolean {
+    return true
+    // !savedViewService.loading && savedViewService.dashboardViews.length == 0
+  }
 }

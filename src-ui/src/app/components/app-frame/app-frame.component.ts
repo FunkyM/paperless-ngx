@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core'
+import { Component, HostListener, Renderer2 } from '@angular/core'
 import { FormControl } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
 import { from, Observable } from 'rxjs'
@@ -31,6 +31,11 @@ import { ComponentCanDeactivate } from 'src/app/guards/dirty-doc.guard'
   styleUrls: ['./app-frame.component.scss'],
 })
 export class AppFrameComponent implements ComponentCanDeactivate {
+  versionString = `${environment.appTitle} ${environment.version}`
+  appRemoteVersion
+
+  isMenuCollapsed: boolean = true
+
   constructor(
     public router: Router,
     private activatedRoute: ActivatedRoute,
@@ -49,11 +54,6 @@ export class AppFrameComponent implements ComponentCanDeactivate {
       })
     tasksService.reload()
   }
-
-  versionString = `${environment.appTitle} ${environment.version}`
-  appRemoteVersion
-
-  isMenuCollapsed: boolean = true
 
   closeMenu() {
     this.isMenuCollapsed = true
