@@ -259,10 +259,12 @@ Paperless provides the following placeholders within filenames:
 * ``{title}``: The title of the document.
 * ``{created}``: The full date (ISO format) the document was created.
 * ``{created_year}``: Year created only.
+* ``{created_quarter}``: Quarter created only (number 1-4).
 * ``{created_month}``: Month created only (number 01-12).
 * ``{created_day}``: Day created only (number 01-31).
 * ``{added}``: The full date (ISO format) the document was added to paperless.
 * ``{added_year}``: Year added only.
+* ``{added_quarter}``: Quarter added only (number 1-4).
 * ``{added_month}``: Month added only (number 01-12).
 * ``{added_day}``: Day added only (number 01-31).
 
