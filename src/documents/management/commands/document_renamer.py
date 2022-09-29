@@ -1,10 +1,7 @@
 import logging
 
-import tqdm
 from django.core.management.base import BaseCommand
-from django.db.models.signals import post_save
-from documents.models import Document
-
+from documents.tasks import update_all_documents
 
 class Command(BaseCommand):
 
@@ -27,8 +24,4 @@ class Command(BaseCommand):
 
         logging.getLogger().handlers[0].level = logging.ERROR
 
-        for document in tqdm.tqdm(
-            Document.objects.all(),
-            disable=options["no_progress_bar"],
-        ):
-            post_save.send(Document, instance=document)
+        update_all_documents(options["no_progress_bar"])

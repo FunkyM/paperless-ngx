@@ -258,3 +258,12 @@ def update_document_archive_file(document_id):
         )
     finally:
         parser.cleanup()
+
+
+def update_all_documents(progress_bar_disable=False):
+    documents = Document.objects.all()
+
+    ix = index.open_index()
+
+    for document in tqdm.tqdm(documents, disable=progress_bar_disable):
+        post_save.send(Document, instance=document, created=False)
